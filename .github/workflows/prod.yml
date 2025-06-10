@@ -21,7 +21,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Build and push school image
+      - name: Build and push app image
         uses: docker/build-push-action@v4
         with:
           context: .
@@ -33,13 +33,13 @@ jobs:
         env:
           PAT: ${{ secrets.PAT }}
         run: |
-          git clone https://github.com/100xdevs-cohort-3/argo-deployment.git
-          cd argo-deployment
+          git clone https://github.com/graniteviper/github-ops.git
+          cd github-ops
 
-          sed -i 's|image: 100xdevs/todo-app-week-39:.*|image: 100xdevs/todo-app-week-39:${{ github.sha }}|' manifest.yml
+          sed -i 's|image: graniteviper/landing-page-week-37:.*|image: graniteviper/landing-page-week-37:${{ github.sha }}|' manifest.yml
 
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add .
-          git commit -m "Update school server image tags to ${{ github.sha }}"
-          git push https://${PAT}@github.com/100xdevs-cohort-3/argo-deployment.git main
+          git commit -m "Update app server image tags to ${{ github.sha }}"
+          git push https://${github.PAT}github.com/graniteviper/github-ops.git main
