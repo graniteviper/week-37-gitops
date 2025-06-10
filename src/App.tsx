@@ -95,7 +95,7 @@ function App() {
               onClick={() => scrollToSection('about')}
               className="border-2 border-white text-white px-8 py-4 font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300"
             >
-              OUR STORY
+              OUR STORY!
             </button>
           </div>
         </div>
