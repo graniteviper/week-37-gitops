@@ -42,4 +42,4 @@ jobs:
           git config user.email "actions@github.com"
           git add .
           git commit -m "Update app server image tags to ${{ github.sha }}"
-          git push https://${{secrets.PAT}}@github.com/graniteviper/github-ops.git main
+          git push https://${PAT}@github.com/graniteviper/github-ops.git main
